@@ -17,7 +17,7 @@ return new class extends Migration
         $table->text('description')->nullable();
         $table->foreignId('category_id')->constrained()->onDelete('cascade');
         $table->decimal('purchase_price', 10, 2);
-        $table->decimal('retail_price', 10, 2)->nullable();
+        $table->decimal('retail_price', 10, 2)->default(0);
         $table->integer('quantity')->default(0);
         $table->timestamps();
     });

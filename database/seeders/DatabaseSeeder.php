@@ -10,9 +10,13 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        Category::factory(5)->create()->each(function ($category) {
-            Product::factory(10)->create(['category_id' => $category->id]);
-        });
+        // Category::factory(5)->create()->each(function ($category) {
+        //     Product::factory(10)->create(['category_id' => $category->id]);
+        // });
+
+        $this->call([
+                CategorySeeder::class,
+                ProductSeeder::class ]);
     }
 }
 
